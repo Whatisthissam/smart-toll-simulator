@@ -24,6 +24,52 @@ Designing a real-time toll collection system requires handling thousands of conc
 - **Database**: MongoDB (PyMongo)
 - **Utilities**: Faker (Dummy Data), python-dotenv
 
+## 📂 Folder Structure
+```text
+.
+├── .env
+├── .env.example
+├── .gitignore
+├── README.md
+├── backend
+│   ├── app.py
+│   ├── database.py
+│   ├── models.py
+│   ├── routes.py
+│   ├── sample_data.py
+│   ├── services.py
+│   └── utils.py
+├── docs
+│   ├── api.md
+│   ├── architecture.md
+│   ├── database.md
+│   └── scalability.md
+├── frontend
+│   ├── analytics.html
+│   ├── assets
+│   │   ├── icons
+│   │   ├── images
+│   │   └── screenshots
+│   │       ├── Screenshot 2026-05-19 at 2.34.35 PM.png
+│   │       └── image.png
+│   ├── css
+│   │   └── style.css
+│   ├── dashboard.html
+│   ├── failure.html
+│   ├── index.html
+│   ├── js
+│   │   ├── analytics.js
+│   │   ├── app.js
+│   │   ├── dashboard.js
+│   │   ├── failure.js
+│   │   ├── payment.js
+│   │   └── vehicle.js
+│   ├── payment.html
+│   ├── system-design.html
+│   └── vehicle.html
+└── requirements.txt
+```
+
 ## 🏗️ Architecture
 The system follows a modular architecture separating the presentation layer from the business logic and database.
 
