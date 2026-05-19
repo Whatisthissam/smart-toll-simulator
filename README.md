@@ -105,11 +105,6 @@ The simulator can explicitly test 20 different failure scenarios, including:
 
 *(For detailed explanations, check `docs/scalability.md`)*
 
-##  Screenshots
-*(Add your screenshots here)*
-- Dashboard View: `assets/screenshots/dashboard.png`
-- Failure Simulation: `assets/screenshots/failure.png`
-
 ##  Installation & Running Locally
 
 1. **Clone the repository**
