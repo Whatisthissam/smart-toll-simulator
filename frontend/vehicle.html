@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Detection - Smart Toll Simulator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">SmartToll Simulator</div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="vehicle.html" class="active">Vehicle Entry</a></li>
+            <li><a href="payment.html">Payments</a></li>
+            <li><a href="failure.html">Failure Center</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="system-design.html">System Design</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>Vehicle Entry Simulation</h1>
+        </header>
+
+        <div class="split-layout">
+            <div class="card">
+                <h3>Simulate Detection</h3>
+                <form id="detection-form">
+                    <div class="form-group">
+                        <label for="vehicleNum">Vehicle Number</label>
+                        <input type="text" id="vehicleNum" placeholder="e.g. MH 12 AB 1234">
+                    </div>
+                    <div class="form-group">
+                        <label for="rfidTag">RFID Tag</label>
+                        <input type="text" id="rfidTag" placeholder="e.g. RFID-ABC1234">
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleType">Vehicle Type</label>
+                        <select id="vehicleType">
+                            <option value="Car">Car</option>
+                            <option value="Bus">Bus</option>
+                            <option value="Truck">Truck</option>
+                            <option value="LCV">LCV</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="detectVehicle()">Detect Vehicle</button>
+                    <button type="button" class="btn btn-warning" onclick="simulateDuplicate()">Duplicate
+                        Scan</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h3>Detection Status</h3>
+                <div id="detection-result" style="margin-top: 20px;">
+                    <p>Waiting for vehicle detection...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="notification-container"></div>
+    <script src="js/app.js"></script>
+    <script src="js/vehicle.js"></script>
+</body>
+
+</html>

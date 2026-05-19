@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Design - Smart Toll Simulator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true, theme: 'dark'});</script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">SmartToll Sim</div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="vehicle.html">Vehicle Entry</a></li>
+            <li><a href="payment.html">Payments</a></li>
+            <li><a href="failure.html">Failure Center</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="system-design.html" class="active">System Design</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>Architecture & System Design</h1>
+        </header>
+
+        <div class="card" style="margin-bottom: 20px;">
+            <h3>High Level Architecture Diagram</h3>
+            <div class="mermaid">
+                graph TD
+                V[Vehicle] --> R[RFID Layer]
+                R --> S[Sensor Layer]
+                S --> LB[Load Balancer]
+                LB --> AG[API Gateway]
+                AG --> VS[Validation Service]
+                AG --> PS[Payment Service]
+                AG --> LS[Logging Service]
+                VS --> RC[Redis Cache]
+                VS --> QL[Queue Layer]
+                PS --> QL
+                QL --> DB[(MongoDB)]
+                DB --> D[Dashboard]
+            </div>
+        </div>
+
+        <div class="split-layout">
+            <div class="card">
+                <h3>Workflow Diagram</h3>
+                <div class="mermaid">
+                    graph TD
+                    A[Vehicle Entry] --> B[Detection]
+                    B --> C{Validation}
+                    C -->|Success| D[Payment]
+                    C -->|Fail| E[Camera Backup/Manual]
+                    D --> F[Logging]
+                    E --> F
+                    F --> G[Barrier Open]
+                </div>
+            </div>
+            <div class="card">
+                <h3>Failure Flow Diagram</h3>
+                <div class="mermaid">
+                    graph TD
+                    A[RFID Failure] --> B[Camera Backup]
+                    B --> C{Retry?}
+                    C -->|Fail| D[Manual Verification]
+                    C -->|Success| E[Payment Retry]
+                    D --> F[Log Entry]
+                    E --> F
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="notification-container"></div>
+    <script src="js/app.js"></script>
+</body>
+</html>

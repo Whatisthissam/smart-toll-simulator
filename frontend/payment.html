@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments - Smart Toll Simulator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">SmartToll Sim</div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="vehicle.html">Vehicle Entry</a></li>
+            <li><a href="payment.html" class="active">Payments</a></li>
+            <li><a href="failure.html">Failure Center</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="system-design.html">System Design</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>Payment Processing</h1>
+        </header>
+
+        <div class="split-layout">
+            <div class="card">
+                <h3>Process Automatic Payment</h3>
+                <form id="auto-payment-form">
+                    <div class="form-group">
+                        <label>Vehicle Number</label>
+                        <input type="text" id="autoVehicleNum" placeholder="Vehicle Number">
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="processAutoPayment()">Deduct Toll</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h3>Manual Payment Fallback</h3>
+                <form id="manual-payment-form">
+                    <div class="form-group">
+                        <label>Vehicle Number</label>
+                        <input type="text" id="manualVehicleNum" placeholder="Vehicle Number">
+                    </div>
+                    <div class="form-group">
+                        <label>Amount</label>
+                        <input type="number" id="manualAmount" placeholder="Amount">
+                    </div>
+                    <div class="form-group">
+                        <label>Method</label>
+                        <select id="manualMethod">
+                            <option value="Cash">Cash</option>
+                            <option value="UPI">UPI</option>
+                            <option value="Card">Card</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="processManualPayment()">Complete Manual Payment</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="card" style="margin-top: 20px;">
+            <h3>Transactions History</h3>
+            <table id="transactions-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Vehicle</th>
+                        <th>Amount</th>
+                        <th>Method</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- JS populated -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="notification-container"></div>
+    <script src="js/app.js"></script>
+    <script src="js/payment.js"></script>
+</body>
+</html>
