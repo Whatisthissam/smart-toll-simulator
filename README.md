@@ -8,7 +8,7 @@
 ##  Overview
 The **Smart Toll Collection System Simulator** is a comprehensive web application designed to demonstrate the architecture, failure handling, and real-time processing capabilities of a modern toll collection system. It simulates vehicle entry, RFID validation, automated payment deduction, and various system failures in a controlled, beginner-friendly environment.
 
-## 🎯 Problem Statement
+##  Problem Statement
 Designing a real-time toll collection system requires handling thousands of concurrent requests, ensuring data consistency during network failures, and providing fallback mechanisms for incorrect detections or payment timeouts. This project simulates these challenges to understand distributed system design practically.
 
 ##  Features
